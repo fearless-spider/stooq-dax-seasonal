@@ -1,0 +1,1 @@
+Parsing seasonality from time series data can often be useful in data analytics. It helps with analyzing seasonality for decision making as well as for more accurate forecasts. Python can be used to separate out these trend and seasonal components.
