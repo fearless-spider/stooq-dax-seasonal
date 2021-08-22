@@ -19,7 +19,7 @@ data = pd.read_csv(csv_file, index_col='Date', parse_dates=['Date'], date_parser
 
 data.dropna()
 
-data = data.tail(1000)
+data = data.tail(100)
 
 #mpl.plot(data.tail(100), type='candle', volume=False)
 
@@ -33,11 +33,11 @@ print(data.describe())
 data['OCa'] = data['OC'] - data['OC'].min() + 1
 analysis = data[['OCa']].copy()
 
-decompose_result_mult = seasonal_decompose(analysis, model="multiplicative", period=365)
+decompose_result_mult = seasonal_decompose(analysis, model="multiplicative", period=9)
 
 trend = decompose_result_mult.trend
 seasonal = decompose_result_mult.seasonal
 residual = decompose_result_mult.resid
 
 fig = decompose_result_mult.plot()
-fig.savefig('result.png')
+fig.savefig('result.png', dpi=300)
